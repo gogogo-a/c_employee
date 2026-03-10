@@ -22,11 +22,10 @@ jobs:
     - name: Compile C Code
       shell: msys2 {0}
       run: |
-        cd "职工信息管理系统"
         gcc -o manager.exe main.c
 
     - name: Upload Build Artifact
       uses: actions/upload-artifact@v4
       with:
         name: employee-manager-windows
-        path: "职工信息管理系统/manager.exe"
+        path: "manager.exe"
