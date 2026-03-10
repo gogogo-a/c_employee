@@ -13,12 +13,14 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Set up MinGW
-      uses: egor-tensin/setup-mingw@v2
+    - name: Set up MSYS2
+      uses: msys2/setup-msys2@v2
       with:
-        platform: x64
+        update: true
+        install: mingw-w64-x86_64-gcc
 
     - name: Compile C Code
+      shell: msys2 {0}
       run: |
         cd "职工信息管理系统"
         gcc -o manager.exe main.c
