@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 #define MAX_EMPLOYEES 1000
 #define FILENAME "employees.txt"
 
@@ -35,6 +39,10 @@ double calculate_total(Employee *e);
 int find_by_id(const char *id);
 
 int main() {
+#ifdef _WIN32
+    SetConsoleOutputCP(65001);
+    SetConsoleCP(65001);
+#endif
     load_data();
     int choice;
     while (1) {
